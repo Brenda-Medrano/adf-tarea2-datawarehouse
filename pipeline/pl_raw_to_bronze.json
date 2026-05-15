@@ -1,0 +1,1628 @@
+{
+	"name": "pl_raw_to_bronze",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data2",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "municipio_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "municipio_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "municipio_nombre",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "municipio_nombre",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "departamento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "departamento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "codigo_departamento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "codigo_departamento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "zona_geografica",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "zona_geografica",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "es_capital_departamental",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "es_capital_departamental",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "poblacion_depto_estimada",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "poblacion_depto_estimada",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "catalogo_departamentos_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "br_catalogo_departamentos_csv",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy data3",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "establecimiento_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "establecimiento_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "nombre_establecimiento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "nombre_establecimiento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "tipo_establecimiento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tipo_establecimiento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "nivel_atencion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "nivel_atencion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "zona",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "zona",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "sedes",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "sedes",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "red_salud",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "red_salud",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "departamento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "departamento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "municipio",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "municipio",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "latitud",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "latitud",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "longitud",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "longitud",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "tiene_cadena_frio",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tiene_cadena_frio",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "activo",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "activo",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "catalogo_establecimientos_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "br_catalogo_establecimientos_csv",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy data4",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "vacuna_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "vacuna_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "vacuna_nombre",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "vacuna_nombre",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "enfermedad_previene",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "enfermedad_previene",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "grupo_pai",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "grupo_pai",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "numero_dosis",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "numero_dosis",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "dosis_descripcion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "dosis_descripcion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "edad_aplicacion_descripcion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "edad_aplicacion_descripcion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "edad_minima_dias",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "edad_minima_dias",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "edad_maxima_dias",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "edad_maxima_dias",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "intervalo_minimo_dias",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "intervalo_minimo_dias",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "via_administracion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "via_administracion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "sitio_aplicacion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "sitio_aplicacion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "dosis_ml",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "dosis_ml",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "condicion_especial",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "condicion_especial",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "catalogo_vacunas_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "br_catalogo_vacunas_csv",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy data5",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "id_registro",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "id_registro",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "cod_paciente",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "cod_paciente",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "documento_identidad",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "documento_identidad",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "nombres",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "nombres",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "primer_apellido",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "primer_apellido",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "segundo_apellido",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "segundo_apellido",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "genero",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "genero",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "fec_nacimiento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "fec_nacimiento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "municipio",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "municipio",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "pueblo_indigena",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "pueblo_indigena",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "fec_vacunacion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "fec_vacunacion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "cod_vacuna",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "cod_vacuna",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "desc_vacuna",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "desc_vacuna",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "nro_dosis",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "nro_dosis",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "cod_establecimiento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "cod_establecimiento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "desc_establecimiento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "desc_establecimiento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "depto",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "depto",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "nro_lote",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "nro_lote",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "temp_conservacion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "temp_conservacion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "edad_dias",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "edad_dias",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "via_aplicacion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "via_aplicacion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "vacunacion_lapaz_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "br_vacunacion_lapaz_csv",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy data6",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "record_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "record_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "sync_timestamp",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "sync_timestamp",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "device_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "device_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_ci",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_ci",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_name",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_last_name_1",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_last_name_1",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_last_name_2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_last_name_2",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_sex",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_sex",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_birth_date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_birth_date",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_department",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_department",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_municipality",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_municipality",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_community",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_community",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_indigenous",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_indigenous",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "vaccination_date",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "vaccination_date",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "vaccine_code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "vaccine_code",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "vaccine_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "vaccine_name",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "dose_number",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "dose_number",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "facility_code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "facility_code",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "facility_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "facility_name",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "lot_number",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "lot_number",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "storage_temp_celsius",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "storage_temp_celsius",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "patient_age_days",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "patient_age_days",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "administration_route",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "administration_route",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "gps_latitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gps_latitude",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "gps_longitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gps_longitude",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "gps_accuracy_meters",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "gps_accuracy_meters",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "observations",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "observations",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "vacunacion_rural_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "br_vacunacion_rural_csv",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy data7",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "registro_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "registro_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "paciente_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "paciente_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ci_paciente",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ci_paciente",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "nombre_paciente",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "nombre_paciente",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "apellido_paterno",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "apellido_paterno",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "apellido_materno",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "apellido_materno",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "sexo",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "sexo",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "fecha_nacimiento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "fecha_nacimiento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "municipio_residencia",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "municipio_residencia",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "comunidad_indigena",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "comunidad_indigena",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "fecha_vacunacion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "fecha_vacunacion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "vacuna_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "vacuna_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "vacuna_nombre",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "vacuna_nombre",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "numero_dosis",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "numero_dosis",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "establecimiento_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "establecimiento_id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "nombre_establecimiento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "nombre_establecimiento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "departamento",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "departamento",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "lote_vacuna",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "lote_vacuna",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "temperatura_conservacion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "temperatura_conservacion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "edad_dias_aplicacion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "edad_dias_aplicacion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "aplicacion_oportuna",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "aplicacion_oportuna",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "via_administracion",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "via_administracion",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "vacunacion_scz_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "br_vacunacion_scz_csv",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
