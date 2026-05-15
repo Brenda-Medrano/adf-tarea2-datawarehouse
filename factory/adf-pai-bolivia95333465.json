@@ -1,0 +1,10 @@
+{
+	"name": "adf-pai-bolivia95333465",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "chilecentral"
+}
